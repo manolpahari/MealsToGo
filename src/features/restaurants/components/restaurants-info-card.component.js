@@ -5,7 +5,6 @@ import styled from "styled-components/native";
 import { SvgXml } from "react-native-svg";
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
-import dine from "../../../../assets/dine.png";
 import { Spacer } from "../../../components/spacer/spacer.component";
 
 const RestaurantCard = styled(Card)`
@@ -60,7 +59,7 @@ const SectionEnd = styled.View`
 export const RestaurantsInfoCard = ({ restaurant = {} }) => {
   const {
     name = "Some Restaurant",
-    icon,
+    icon = "https://www.ganeshindiancuisine.com/img/food_menu/sampleImage.png",
     imageUrl = [
       "https://kingberestaurantbd.files.wordpress.com/2016/07/cropped-img_4135.jpg",
     ],
@@ -91,7 +90,10 @@ export const RestaurantsInfoCard = ({ restaurant = {} }) => {
                   {isOpenNow && <SvgXml xml={open} width={25} height={25} />}
                 </Spacer>
                 <Spacer position={"left"} size={"medium"}>
-                  <Image source={dine} style={{ width: 25, height: 25 }} />
+                  <Image
+                    source={{ uri: icon }}
+                    style={{ width: 25, height: 25 }}
+                  />
                 </Spacer>
               </SectionEnd>
             </Section>
